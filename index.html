@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💖 Tabungan</title>
+    
+    <meta name="theme-color" content="#e83e8c"/>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192x192.png">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="app-container">
+        <main id="app-main">
+            <div id="page-home" class="page active">
+                <header class="page-header">
+                    <h1>Beranda</h1>
+                    <div class="theme-switch-wrapper">
+                        <input type="checkbox" id="theme-toggle">
+                        <label for="theme-toggle" class="slider-label"></label>
+                    </div>
+                </header>
+                <div class="page-content">
+                    <div class="card progress-card" id="home-progress"></div>
+                    <div class="card summary-card" id="home-summary"></div>
+                </div>
+            </div>
+
+            <div id="page-transactions" class="page">
+                <header class="page-header"><h1>Riwayat Transaksi</h1></header>
+                <div class="page-content">
+                    <ul id="transaction-list"></ul>
+                </div>
+            </div>
+
+            <div id="page-analysis" class="page">
+                <header class="page-header"><h1>Analisis Masuk / Pengeluaran</h1></header>
+                <div class="page-content">
+                    <div class="card">
+                        <canvas id="expense-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <nav class="bottom-nav">
+            <button data-page="home" class="nav-btn active">🏠<span>Beranda</span></button>
+            <button data-page="transactions" class="nav-btn">📜<span>Transaksi</span></button>
+            <button id="add-transaction-btn" class="nav-btn-add">➕</button>
+            <button data-page="analysis" class="nav-btn">📊<span>Analisis</span></button>
+            <button id="nav-btn-placeholder" class="nav-btn" disabled></button> </nav>
+    </div>
+
+    <div id="form-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 id="modal-title">Tambah Transaksi</h3>
+            <form id="transaction-form">
+                <input type="hidden" id="transaction-id">
+                <input type="text" id="name" placeholder="Nama Anda / Pacar" required>
+                <input type="text" id="description" placeholder="Deskripsi transaksi" required>
+                <input type="number" id="amount" placeholder="Jumlah" required>
+                <select id="type" required>
+                    <option value="income">💰 Ditabung</option>
+                    <option value="expense">💸 Pengeluaran</option>
+                </select>
+                <button type="submit">Simpan</button>
+            </form>
+            <button id="close-modal-btn" class="close-btn">×</button>
+        </div>
+    </div>
+    
+    <div id="toast-container"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
