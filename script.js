@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   // --- KONFIGURASI & STATE APLIKASI ---
-  const TARGET_SAVINGS = 20000000; // Ganti dengan target Anda
-  const WEDDING_DATE = "2025-12-20T09:00:00"; // Ganti dengan Tanggal & Waktu Pernikahan Anda (YYYY-MM-DDTHH:MM:SS)
+  const TARGET_SAVINGS = 50000000; // Ganti dengan target Anda
+  const WEDDING_DATE = "2026-06-16T09:00:00"; // Ganti dengan Tanggal & Waktu Pernikahan Anda (YYYY-MM-DDTHH:MM:SS)
   const MILESTONES = [
     { amount: 1000000, name: "Langkah Awal: Rp 1 Juta!", achieved: false },
     { amount: 5000000, name: "Wow, Rp 5 Juta Terkumpul!", achieved: false },
